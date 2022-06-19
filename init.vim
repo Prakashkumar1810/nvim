@@ -3,7 +3,8 @@ set background=dark
 set clipboard=unnamedplus " enables the clipboard between Vim/Neovim and other applications
 " set cursorline " highlights the current line in the editor
 set completeopt=noinsert,menuone,noselect " modifies the auto-complete menu to behave more like an IDE.
-set hidden " hide unused buffers
+" set hidden " hide unused buffers
+set nohidden " nohide unused buffers - this will close the buffers when out of scope
 set inccommand=split " show replacements in a split screen, before applying to the file
 set mouse=a " allows the use of the mouse in the editor
 set number " shows line numbers
@@ -63,7 +64,7 @@ Plug 'preservim/nerdtree' " sidebar to access project files
 
 " Completion / linters / formatters
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " provides auto-completion
-Plug 'plasticboy/vim-markdown' " better support for Markdown file syntax
+" Plug 'plasticboy/vim-markdown' " better support for Markdown file syntax
 
 " Git
 Plug 'airblade/vim-gitgutter' " Shows Git changes in open files
@@ -136,3 +137,18 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
+
+" Have to install ripgrep for this to work
+let $FZF_DEFAULT_COMMAND = 'rg --files'
+" Searching for file names
+nnoremap <C-p> :Files<Cr>
+" Searching file contents
+nnoremap <C-f> :Rg<Cr>
+
+" Tabs
+" Go to prev tab
+nnoremap <S-Tab> gT
+" Go to next tab
+nnoremap <Tab> gt
+" Open new tab
+nnoremap <silent> <S-t> :tabnew<CR>
