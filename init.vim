@@ -71,6 +71,10 @@ Plug 'airblade/vim-gitgutter' " Shows Git changes in open files
 " Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 " Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 
+" File Searching
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 colorscheme dracula " Setting the theme
@@ -124,3 +128,11 @@ nnoremap <M-left> <C-w>h
 nnoremap <M-down> <C-w>j
 nnoremap <M-up> <C-w>k
 nnoremap <M-right> <C-w>l
+
+" File Searching
+nnoremap <C-p> :FZF<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
