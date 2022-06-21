@@ -152,3 +152,8 @@ nnoremap <S-Tab> gT
 nnoremap <Tab> gt
 " Open new tab
 nnoremap <silent> <S-t> :tabnew<CR>
+
+" Highlighing errors in COC
+hi CocUnderline gui=undercurl term=undercurl
+hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
+hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
