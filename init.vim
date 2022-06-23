@@ -32,6 +32,12 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
+" zc to fold code and zo to open
+set foldmethod=syntax
+set nofoldenable
+set foldnestmax=3
+set foldlevel=3
+
 " True color if available
 "let term_program=$TERM_PROGRAM
 
@@ -157,5 +163,20 @@ nnoremap <silent> <S-t> :tabnew<CR>
 hi CocUnderline gui=undercurl term=undercurl
 hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
 hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
-set foldmethod=syntax
-set nofoldenable
+
+" COC Go to funtion or Class definition
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction

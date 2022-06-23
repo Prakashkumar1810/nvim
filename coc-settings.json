@@ -1,5 +1,7 @@
 {
     "rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
     "rust-analyzer.cargo.buildScripts.enable": true,
-    "rust-analyzer.procMacro.enable": true
+    "rust-analyzer.procMacro.enable": true,
+    "coc.preferences.jumpCommand": "tabe",
+    "diagnostic.checkCurrentLine": true
 }
