@@ -13,8 +13,6 @@ set title " show the file title
 " set ttimeoutlen=0 " time in milliseconds to run commands
 set wildmenu " shows a more advanced menu for auto-completion suggestions
 
-set encoding=utf-8
-
 " Tabs size
 set expandtab " transforms tabs into spaces
 set autoindent " indent a new line the same amount as the line just typed
